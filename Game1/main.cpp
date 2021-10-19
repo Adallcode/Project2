@@ -1,7 +1,7 @@
 #include <iostream>
+
 #include "Game.h"
-#include "Collision.h"
-#include "Math.h"
+
 
 using namespace std;
 

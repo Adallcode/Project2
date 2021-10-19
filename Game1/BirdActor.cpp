@@ -11,6 +11,7 @@
 #include "Random.h"
 #include "GameOverMenu.h"
 
+
 //This variable is when have been 3 Bird that has reached the floor this means the game is over
 int BirdActor::mDeadCounter = 0;
 
@@ -25,11 +26,23 @@ BirdActor::BirdActor(Game * game)
 
 	MeshComponent * m = new MeshComponent(this);
 
-	m->SetMesh(game->GetRenderer()->GetMesh("NewTable.gpmesh"));
+	m->SetMesh(game->GetRenderer()->GetMesh("BatterModel.gpmesh"));
 
 	BoxComponent * box = new BoxComponent(this);
 
 	box->SetObjectBox(m->GetMesh()->Box());
+
+
+	//Scale this bird
+	if (game->NumBirdKilled() >= 2 && game->NumBirdKilled() <= 4)
+	{
+		SetScale(0.7f);
+	}
+	else if (game->NumBirdKilled() > 4)
+	{
+		SetScale(0.4f);
+	}
+	
 
 	//Add bird in game
 	game->AddBird(this);

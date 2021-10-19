@@ -44,9 +44,11 @@ void Bullet::UpdateActor(float delta)
 	{
 		BirdActor * bird = dynamic_cast<BirdActor *>(actor);
 
-		//Delete this bird that was killed
+		//First delete this bird that was killed
 		if (bird)
 		{
+			//Increase the number of bird killed
+			GetGame()->IncreaseBirdKilled();
 
 			BirdActor *temp = new BirdActor(GetGame());
 
@@ -54,7 +56,7 @@ void Bullet::UpdateActor(float delta)
 			
 		}
 
-
+		//Delete this bullet as well
 		delete this;
 	}
 

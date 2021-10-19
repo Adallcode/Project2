@@ -23,8 +23,12 @@
 #include "BirdActor.h"
 
 
+//Number of birds killed
+int Game::mNumBirdKilled = 0;
+
 const float W = 1000.f;
 const float H = 700.f;
+
 
 Game::Game()
 	:mIsRunning(true),

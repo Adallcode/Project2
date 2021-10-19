@@ -53,6 +53,11 @@ public:
 
 	const std::vector<class UIBase *> & UI()const { return mUI; }
 
+
+	// Number of birds killed
+	int NumBirdKilled()const { return mNumBirdKilled; }
+	void IncreaseBirdKilled() { mNumBirdKilled++; }
+
 private:
 	bool mIsRunning;
 	bool mUpdating;
@@ -72,7 +77,7 @@ private:
 
 	//Birds
 	std::vector<class BirdActor *> mBird;
-
+	static int mNumBirdKilled;
 	
 	//Font
 	std::unordered_map<std::string, class Font *> mFonts;
