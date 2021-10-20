@@ -20,13 +20,13 @@ BirdActor::BirdActor(Game * game)
 	:Actor(game),
 	mMaxTimeReachFloor(3)
 {
-	SetPosition(Vector3(400.0f, Random::FloatInRange(-200.0f, 200.0f), -100.0f));
+	SetPosition(Vector3(350.0f, Random::FloatInRange(-200.0f, 200.0f), -100.0f));
 
 	ParticleComponent *pc = new ParticleComponent(this);
 
 	MeshComponent * m = new MeshComponent(this);
 
-	m->SetMesh(game->GetRenderer()->GetMesh("BatterModel.gpmesh"));
+	m->SetMesh(game->GetRenderer()->GetMesh("Cube.gpmesh"));
 
 	BoxComponent * box = new BoxComponent(this);
 
@@ -36,11 +36,16 @@ BirdActor::BirdActor(Game * game)
 	//Scale this bird
 	if (game->NumBirdKilled() >= 2 && game->NumBirdKilled() <= 4)
 	{
-		SetScale(0.7f);
+		SetScale(0.2f);
 	}
 	else if (game->NumBirdKilled() > 4)
 	{
-		SetScale(0.4f);
+		SetScale(0.1f);
+	}
+	else
+	{
+		//Start with this size
+		SetScale(0.3f);
 	}
 	
 

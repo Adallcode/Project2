@@ -6,11 +6,11 @@
 
 ParticleComponent::ParticleComponent(Actor * owner)
 	:Component(owner),
-	mforce( Random::FloatInRange( 15.0f, 30.0f)),
+	mforce( Random::FloatInRange( 20.0f, 30.0f) ),
 	mMass(1.0f),
 	mGravity( -Random::FloatInRange( 0.5f, 1.5f))
 {
-	Vector3 target = Vector3(400.f, Random::FloatInRange(-50.0f, 50.0f), Random::FloatInRange(10.0f, 50.0f));
+	Vector3 target = Vector3(350.f, Random::FloatInRange(-50.0f, 50.0f), Random::FloatInRange(10.0f, 50.0f));
 
 	Vector3 toTarget = target - owner->Position();
 

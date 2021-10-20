@@ -32,7 +32,7 @@ void Player::ActorInput(const Uint8 * key)
 
 	//Convert the mouse position into the screen coordinate
 
-	mTarget.x = 400.0f;
+	mTarget.x = 350.0f;
 	mTarget.y = ( x - GetGame()->GetRenderer()->WindowW() / 2.0f);
 	mTarget.z = ( GetGame()->GetRenderer()->WindowW() / 2.0f - y );
 
