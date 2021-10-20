@@ -159,7 +159,7 @@ void Game::Shutdown()
 {
 	UnLoad();
 
-	//shut down the library
+	//Shut down the library
 	TTF_Quit();
 
 	delete mPhysic;
@@ -245,7 +245,7 @@ void Game::HandleKey(int key)
 	{
 	case SDLK_1:
 		
-		//Create pasue
+		//Create pause
 		new PauseMenu(this);
 
 		break;
@@ -258,14 +258,17 @@ void Game::Update()
 	while (!SDL_TICKS_PASSED(SDL_GetTicks(), mTicks + 16))
 		;
 
-	//float delta 
+	float delta = (SDL_GetTicks() - mTicks) / 1000.0f;
+
+	//Just get this frame ticks
+	mTicks = SDL_GetTicks();
 
 	if (mState == GamePlay)
 	{
 		mUpdating = true;
 		for (auto a : mActor)
 		{
-			a->Update(0.016f);
+			a->Update(delta);
 		}
 
 		//Pass pending to actor, but before Transform it
@@ -300,7 +303,7 @@ void Game::Update()
 	{
 		if (ui->GetState() == UIBase::EActive)
 		{
-			ui->Update(0.016f);
+			ui->Update(delta);
 		}
 	}
 
